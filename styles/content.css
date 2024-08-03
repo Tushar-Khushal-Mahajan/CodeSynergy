@@ -1,0 +1,663 @@
+:root {
+    --primary-color: white;
+    /* --secondary-color: #3D63DD; */
+    --secondary-color: #65a105;
+    --ternary-color: #DD3CB2;
+
+    /* -- */
+
+    --primary-text-color: black;
+    --secondary-text-color: white;
+
+    /* ---- */
+    --padding-left-right: 30px;
+
+
+    /*  */
+
+    --footer-height: 50px;
+}
+
+
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+::-webkit-scrollbar-track {
+    /* background: #ffffff; */
+    padding: 0;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 0px;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+
+body {
+    width: 100%;
+    overflow-y: scroll;
+    /* overflow-x: hidden; */
+
+}
+
+
+
+.header {
+
+    position: relative;
+    top: 0;
+
+    padding: 0px var(--padding-left-right);
+    height: 100px;
+    width: 100%;
+
+    background-color: var(--secondary-color);
+    color: var(--secondary-text-color);
+
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+
+    font-size: 20px;
+}
+
+.header .heading {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.main {
+    min-height: calc(100vh - 100px);
+    max-height: fit-content;
+    width: 100%;
+
+
+    position: relative;
+}
+
+
+.main .sidebar {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 999;
+
+    width: 300px;
+    height: 100vh;
+
+    padding: 5px;
+
+    border: 1px solid black;
+
+    background: rgba(135, 221, 77, 0.841);
+    color: white;
+    backdrop-filter: blur(10px);
+
+
+    transition: left 1s ease;
+
+}
+
+.toggle-in-out {
+    position: absolute;
+    display: block;
+    left: -350px !important;
+}
+
+#sidebarCheckBox {
+    appearance: unset;
+}
+
+
+
+
+.main .sidebar .sidebar-header {
+    text-align: end;
+
+    font-size: 30px;
+
+    /* color: var(--secondary-text-color); */
+
+
+}
+
+.main .sidebar .sidebar-body {
+
+    margin-top: 10px;
+
+    border: 1px solid black;
+    height: 100%;
+
+    overflow: scroll;
+
+    padding-bottom: 20px;
+
+}
+
+.main .sidebar .sidebar-body .module {
+    padding: 5px;
+
+    border: 1px solid #dadada;
+
+    user-select: none;
+
+    font-size: 1.2rem;
+
+}
+
+.main .sidebar .sidebar-body .module .topic-heading {
+    border-bottom: 1px dotted #dadada;
+}
+
+
+.main .sidebar .sidebar-body .module .sub-topics p {
+    color: var(--primary-text-color);
+    padding: 5px 5px;
+
+    font-size: 1.1rem;
+}
+
+.main .sidebar .sidebar-body .module .sub-topics:hover p {
+
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.active {
+    /* background-color: var(--secondary-color);
+    color: white; */
+
+    background: red;
+    color: white;
+}
+
+.main .sidebar .sidebar-footer {
+
+    height: fit-content;
+
+    padding: 5px 0px;
+
+    margin-top: 10px;
+
+    border: 1px solid black;
+
+}
+
+.main .sidebar .sidebar-footer .footer-top {
+    display: flex;
+    justify-content: space-around;
+}
+
+.main .sidebar .sidebar-footer .footer-top h3 {
+
+    border: 1px solid black;
+    margin: 2px;
+    width: 100%;
+    text-align: center;
+}
+
+.main .sidebar .sidebar-footer button,
+.main .sidebar .sidebar-footer .btn {
+    width: 100%;
+    height: 100%;
+    padding: 8px;
+
+    background: #1D2E5C;
+    color: white;
+    border: 1px solid white;
+
+    cursor: pointer;
+}
+
+.main .sidebar .sidebar-footer button:hover,
+.main .sidebar .sidebar-footer .btn:hover {
+    background-color: #dadada;
+    color: var(--secondary-color);
+    font-weight: bolder;
+}
+
+.main .sidebar .sidebar-footer .footer-bottom {
+    border: 1px solid black;
+    width: calc(100% - 4px);
+    margin: 2px;
+    text-align: center;
+}
+
+
+
+/* main content styling */
+.main .content {
+
+
+    position: absolute;
+    left: 0;
+    top: 0;
+
+
+    text-align: justify;
+    line-height: 1.5;
+
+    padding: var(--padding-left-right);
+    margin-bottom: 10px;
+
+
+    background-color: #F0F5FF;
+
+    transition: left 1s ease;
+
+}
+
+
+.main .space-for-sidebar {
+    position: absolute;
+    left: 300px;
+}
+
+
+.main .content h1,
+.main .content h2,
+.main .content h3,
+.main .content h4,
+.main .content h5 {
+
+    padding: 5px;
+
+    color: rgb(13, 12, 12);
+    font-weight: bold;
+    /* background-color: rgba(135, 221, 77, 0.841);; */
+}
+
+.main .content h1::before,
+.main .content h2::before,
+.main .content h3::before,
+.main .content h4::before,
+.main .content h5::before {
+
+    content: "";
+    margin-right: 15px;
+}
+.main .content h1::before{
+    content: "➢";
+    margin-right: 15px;
+}
+.main .content p,
+ul,
+li,
+a {
+    font-size: 1.2rem;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+
+
+.main .footer {
+    height: 50px;
+    width: 100%;
+    background-color: black;
+    color: white;
+}
+
+.Front-Window {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+
+    /* transform: translate(-50%, -50%); */
+    transform: translate(-50%, -50%) scale(0);
+
+    width: 95%;
+    height: 95vh;
+
+    z-index: 1000;
+
+    background-image: url("../images/1234.gif");
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+
+    border: 1px solid black;
+
+    transition: transform 2s ease;
+
+    user-select: none;
+}
+
+.Front-Window-show {
+
+    /* transform: translate(-50%, -50%); */
+
+    transform: translate(-50%, -50%) scale(1);
+    transform-origin: bottom left;
+
+}
+
+.Front-Window .window-header {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    color: white;
+
+    padding: 20px;
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+.Front-Window .window-body {
+    color: white;
+    width: 100%;
+    height: 90%;
+    padding: 50px;
+
+    border: 1px solid black;
+}
+
+.Front-Window .window-body .top {
+    width: 30%;
+    height: 80px;
+
+
+    color: white;
+    text-shadow: 0px 0px 3px rgb(0, 0, 36);
+
+    text-wrap: nowrap;
+
+    font-size: 20px;
+
+    overflow: hidden;
+}
+
+.Front-Window .window-body .top div {
+    display: flex;
+
+    border: 2px solid white;
+    background-color: white;
+
+    width: 100%;
+    height: 40px;
+}
+
+.Front-Window .window-body .top div:hover {
+    box-shadow: 0px 0px 5px rgb(120, 255, 255), 0px 0px 10px rgb(3, 255, 255);
+}
+
+.Front-Window .window-body .top div input {
+    width: 85%;
+
+    padding: 10px;
+
+    font-size: 20px;
+
+    border: none;
+    outline: none;
+}
+
+.Front-Window .window-body .top div button {
+    padding: 3px;
+    width: 10%;
+    font-size: 20px;
+
+    background-color: transparent;
+    border: none;
+
+    outline: none;
+}
+
+.Front-Window .window-body .body {
+    height: 100%;
+
+    display: flex;
+
+    overflow: hidden;
+}
+
+.Front-Window .window-body .body .left {
+    width: 400px;
+    height: 100%;
+
+
+    color: white;
+    text-shadow: 0px 0px 3px rgb(0, 0, 36);
+
+    border-right: 2px solid #aaa;
+
+    padding: 5px;
+}
+
+.Front-Window .window-body .body .left .languages-div p {
+
+    display: inline-flex;
+
+    width: fit-content;
+
+    margin: 5px;
+    padding: 10px;
+    font-weight: 100;
+    text-align: center;
+    font-size: 18px;
+
+    border: 2px solid rgb(255, 216, 216);
+
+    background-color: rgba(0, 0, 0, 0.167);
+    backdrop-filter: blur(10px);
+
+    border-radius: 50px;
+
+    transition: box-shadow 0.3s ease;
+}
+
+.Front-Window .window-body .body .left .languages-div p:hover {
+
+    box-shadow: 0 0 10px rgb(253, 229, 229), 0 0 15px rgb(255, 216, 216);
+
+    cursor: pointer;
+}
+
+.Front-Window .window-body .body .right {
+    width: 100%;
+    height: 100%;
+
+    padding: 5px;
+    margin: 0px;
+
+
+    color: white;
+    text-shadow: 0px 0px 3px rgb(0, 0, 36);
+
+    overflow: hidden;
+}
+
+
+.Front-Window .window-body .body .right .right-content {
+    width: 100%;
+    /* height: 90%; */
+    min-height: fit-content;
+    max-height: 90%;
+
+    overflow: scroll;
+
+    margin-top: 20px;
+
+    display: flex;
+    justify-content: space-around;
+
+    flex-wrap: wrap;
+
+
+    gap: 10px;
+}
+
+.Front-Window .window-body .body .right .right-content .resource-card {
+    /* width: 300px; */
+    width: 90%;
+    height: fit-content;
+
+    padding: 5px;
+
+    border: 2px solid rgb(255, 216, 216);
+
+    background: rgba(0, 0, 0, 0.155);
+    backdrop-filter: blur(10px);
+
+    transition: box-shadow 0.5s ease;
+}
+
+.Front-Window .window-body .body .right .right-content .resource-card:hover {
+    box-shadow: 0 0 10px rgb(253, 229, 229), 0 0 15px rgb(255, 216, 216);
+    cursor: pointer;
+}
+
+.Front-Window .window-body .body .right .right-content .resource-card .resource-card-heading {
+    display: flex;
+
+    align-items: center;
+}
+
+.Front-Window .window-body .body .right .right-content .resource-card .resource-card-heading img {
+    width: 40px;
+    height: 40px;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+    object-fit: cover;
+}
+
+.Front-Window .window-body .body .right .right-content .resource-card .resource-card-heading p {
+    font-size: 18px;
+    font-weight: 100;
+
+    margin-left: 5px;
+
+    color: white;
+
+    text-shadow: 0px 0px 3px black;
+}
+
+.Front-Window .window-body .body .right .right-content .resource-card .resource-card-body {
+    padding: 10px;
+    text-align: end;
+}
+
+.Front-Window .window-body .body .right .right-content .resource-card .resource-card-body button {
+
+    cursor: pointer;
+
+    font-size: 25px;
+    background-color: transparent;
+    color: white;
+
+    border: none;
+}
+
+.Front-Window .window-body .body .right .right-content .resource-card .resource-card-body button:hover {
+    box-shadow: 0px 0px 10px white;
+}
+
+.Front-Window .window-footer {
+    position: absolute;
+    bottom: 0;
+
+    width: 100%;
+    height: 10%;
+
+    padding: 10px;
+
+    background-color: #333333;
+    color: #ffffff;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Front-Window .window-footer img {
+    width: 40px;
+    height: 40px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+    overflow: hidden;
+}
+
+
+/* CODE FOR RESPONSIVENESS */
+@media (max-width : 1000px) {
+
+    /* STYLE FOR MAIN CONTAINER */
+    .main .space-for-sidebar {
+        left: 0px;
+    }
+
+    .main .content {
+        padding: 5px;
+    }
+
+
+    /* STYLE FOR FRONT WINDOW */
+    .Front-Window .window-body .top {
+        width: 50%;
+    }
+
+    .Front-Window .window-body .body {
+        height: 96%;
+
+        overflow: scroll;
+
+        display: block;
+    }
+
+    .Front-Window .window-body .body .left {
+        width: 100%;
+        border: none;
+        height: fit-content;
+    }
+
+    .Front-Window .window-body .body .right .right-content .resource-card {
+        width: 100%;
+    }
+}
+
+
+
+@media (max-width:550px) {
+
+    .heading .content-heading {
+        font-size: 5vw;
+    }
+
+    .heading .content-sub-heading {
+        font-size: 4vw;
+        font-weight: 100;
+    }
+
+    /* NAVBAR HEADING */
+    .content-heading {
+        font-size: 6vw;
+    }
+
+    /* FRONT/RESOURCES WINDOW STYLING */
+    .Front-Window .window-body {
+        padding: 5px;
+    }
+
+
+    .Front-Window .window-body .top {
+        width: 80%;
+    }
+
+}

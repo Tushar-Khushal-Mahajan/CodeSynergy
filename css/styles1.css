@@ -1,0 +1,150 @@
+.CodeMirror {
+    height: 550px; /* Adjust as needed */
+    width: 100%;
+}
+
+#textareacontainer {
+    position: relative;
+    width: 100%;
+}
+
+#iframecontainer {
+    margin-top: 90px;
+    position: relative; /* Ensure the container is positioned relatively */
+    background-color: #fdfafa;
+    font-size: larger;
+    border: 2px solid #aqua; /* Thicker border */
+    border-radius: 8px; /* Rounded corners */
+    padding: 10px; /* Padding inside the border */
+}
+
+#iframewrapper {
+    position: relative;
+    width: 100%;
+    height: 550px; /* Same as the CodeMirror editor */
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 5px; /* Rounded corners */
+}
+
+#runloadercontainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it's above other elements */
+}
+
+.loader {
+    width: 48px;
+    height: 48px;
+    display: inline-block;
+    position: relative;
+    border: 4px solid #080808;
+    box-sizing: border-box;
+    animation: fill 2s linear infinite alternate;
+    color: rgba(255, 0, 0, 0.9);
+    border-radius: 0 0 4px 4px;
+}
+
+.loader::after {
+    content: '';  
+    box-sizing: border-box;
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 4px solid #0c0505;
+    width: 20px;
+    height: 25px;
+    border-radius: 0 4px 4px 0;
+}
+
+@keyframes fill {
+    0% {
+        box-shadow: 0 0 inset;
+    }
+    100% {
+        box-shadow: 0 -48px inset;
+    }
+}
+
+#fileSection h2,
+#textareacontainer h2,
+#iframecontainer h2 {
+    font-size: 1.5rem; /* Adjust as needed */
+    margin-bottom: 10px;
+    background-origin: padding-box;
+}
+
+.btn-group {
+    margin-bottom: 10px;
+}
+
+.container-fluid {
+    max-width: 1500px;
+}
+
+/* Optional: Adjustments for better visual appearance */
+body {
+    background-color: #f4f4f4;
+}
+
+.container-fluid {
+    padding: 20px;
+}
+
+#fileList .list-group-item {
+    margin-bottom: 5px;
+    padding: 10px;
+}
+
+/* New Styles for File Saving Section */
+#fileSection {
+    border: 2px solid #b5cfeb; /* Bootstrap primary color */
+    border-radius: 5px;
+    padding: 15px;
+    background-color: #fcf9f9;
+}
+
+#fileSection .btn {
+    position: relative;
+    padding-left: 21px; /* Space for icon */
+}
+
+#fileSection .btn::before {
+    position: absolute;
+    left: 10px;
+    top: 60%;
+    width: 20px;
+    height: 16px;
+    background-size: cover;
+}
+
+/* New Styles for Output Screen */
+#iframecontainer {
+    background-color: #e6ecef; /* Light background color */
+    border: 3px solid #007bff; /* Thicker, more vibrant border */
+}
+
+iframe {
+    border: 3px solid #007bff; /* Match border color */
+    border-radius: 8px; /* Rounded corners */
+}
+
+#runloadercontainer {
+    background: rgba(0, 0, 0, 0.5); /* Darker overlay */
+}
+
+#runloadercontainer .loader {
+    border-color: #007bff; /* Loader border color */
+}

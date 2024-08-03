@@ -1,0 +1,84 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: #fff;
+}
+
+header h1 {
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.card {
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid transparent;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.3);
+}
+
+.card.selected {
+    border-color: #007bff;
+}
+
+.card .card-body {
+    padding: 20px;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+button.btn {
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button.btn:hover {
+    transform: translateY(-2px);
+}
+
+button.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+button.btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+button.btn-primary:focus,
+button.btn-secondary:focus {
+    outline: none;
+    box-shadow: 0px 0px 5px 2px rgba(0, 123, 255, 0.5);
+}
+
+/* Toast positioning */
+.toast-container {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    z-index: 1055;
+}
+
+.toast {
+    opacity: 0.9;
+    background-color: #fff;
+}
+
+.toast-body {
+    color: #000;
+}
+
+.toast .btn {
+    margin-right: 5px;
+}

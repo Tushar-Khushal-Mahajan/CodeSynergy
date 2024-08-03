@@ -1,0 +1,1077 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800;900&display=swap');
+
+
+
+body {
+    font-family: "Roboto", sans-serif;
+    line-height: 1.8;
+}
+
+/* Section styling */
+section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    z-index: 2;
+    position: relative;
+}
+
+/* Overlay styling with gradient animation */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(45deg, rgb(53, 219, 235), rgba(11, 11, 16, 0.7), #ff0dd7);
+    background-size: 200% 200%;
+    /* Ensure the gradient covers more than the visible area */
+    z-index: -1;
+    animation: gradientAnimation 12s linear infinite;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 0%;
+    }
+
+    50% {
+        background-position: 100% 100%;
+    }
+
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+/* Background cover styling */
+.bg-cover {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/* Hero section styling */
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+/* Button styling */
+.btn {
+    padding: 14px 22px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    /* For the animation effect */
+}
+
+.btn-main {
+    background: linear-gradient(to right, #00e0fe, #1107fe);
+    border-radius: 100px;
+    border: none;
+    font-weight: 600;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    /* Subtle shadow for depth */
+}
+
+/* Button hover effect with jump and shadow */
+.btn-main::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transition: all 0.6s ease;
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+}
+
+.btn-main:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+.btn-main:hover {
+    color: #fff;
+    transform: translateY(-8px);
+    /* More pronounced jump effect */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+    /* Enhanced shadow */
+    animation: jumpEffect 0.6s ease;
+}
+
+/* Jump effect for the button */
+@keyframes jumpEffect {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Heading animation */
+.hero-section h1 {
+    font-size: 3rem;
+    color: #fff;
+    margin: 0;
+    opacity: 0;
+    transform: translateY(-50px);
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+/* Services Section Starts */
+
+.section-intro {
+    margin-bottom: 40px;
+    transition:
+        width 2s,
+        height 2s,
+        background-color 2s,
+        rotate 2s;
+}
+
+/* divider */
+.section-intro .divider {
+    height: 4px;
+    width: 70px;
+    background: linear-gradient(to right, #00e0fe, #fe2c07);
+    margin: 16px auto;
+    transform: translateX(0);
+    /* Center the element */
+    animation: animate-divider 2s infinite;
+    /* Add animation */
+}
+
+@keyframes animate-divider {
+    0% {
+        transform: scaleX(1);
+    }
+
+    50% {
+        transform: scaleX(1.5);
+    }
+
+    100% {
+        transform: scaleX(1);
+    }
+}
+
+/*  */
+
+img {
+    width: 100%;
+}
+
+.service .service-img .icon {
+    width: 90px;
+    height: 90px;
+    background: linear-gradient(to right, #00e0fe, #fe07e9);
+    color: #fff;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.service .service-img .icon i {
+    font-size: 36px;
+}
+
+.service .service-img {
+    position: relative;
+}
+
+.service .service-img .icon {
+    position: absolute;
+    margin-top: -45px;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+/*  */
+.service {
+    position: relative;
+    overflow: hidden;
+    /* Prevents overflow during zoom effect */
+    border: 1px solid #ddd;
+    /* Light border around the card */
+    border-radius: 8px;
+    /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow for depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Smooth transition for zoom and shadow */
+}
+
+.service:hover {
+    transform: scale(1.05);
+    /* Slight zoom effect */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    /* Increase shadow on hover */
+    transform: translateY(-10px);
+}
+
+/* Optional: Adjust the style for the service image and icon if needed */
+.service .service-img {
+    transition: transform 0.3s ease;
+    /* Smooth transition for zoom effect */
+}
+
+.service:hover .service-img {
+    transform: scale(1.05);
+    /* Zoom effect for the image */
+}
+
+.service .service-img .icon {
+    transition: transform 0.3s ease;
+    /* Smooth transition for zoom effect */
+}
+
+.service:hover .service-img .icon {
+    transform: scale(1.05);
+    /* Zoom effect for the icon */
+}
+
+
+
+
+
+/* About Section */
+
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(45deg, rgb(53, 219, 235), rgba(11, 11, 16, 0.7), #ff0dd7);
+    background-size: 200% 200%;
+    /* Ensure the gradient covers more than the visible area */
+    z-index: -1;
+    animation: gradientAnimation 12s linear infinite;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 0%;
+    }
+
+    50% {
+        background-position: 100% 100%;
+    }
+
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+
+
+
+.bg-cover {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.section-intro {
+    margin-bottom: 2rem;
+}
+
+.divider {
+    height: 4px;
+    width: 70px;
+    background: linear-gradient(to right, #00e0fe, #fe2c07);
+    margin: 16px auto;
+    transform: translateX(0);
+    /* Center the element */
+    animation: animate-divider 2s infinite;
+    /* Add animation */
+}
+
+.text-left {
+    text-align: left;
+}
+
+.img-fluid {
+    width: 400px;
+    /* Set the desired width */
+    height: 400px;
+    /* Set the desired height */
+    object-fit: cover;
+    /* Ensure the image covers the container while maintaining aspect ratio */
+    border-radius: 0px;
+    /* Adjust border-radius as needed */
+    box-shadow: 0 4px 3px rgba(0, 0, 0, 0);
+    /* Adjust box-shadow as needed */
+    animation: zoomAnimation 5s infinite;
+    /* Apply zoom animation */
+}
+
+@keyframes zoomAnimation {
+    0% {
+        transform: scale(1);
+        /* Original size */
+    }
+
+    50% {
+        transform: scale(1.1);
+        /* Zoom in */
+    }
+
+    100% {
+        transform: scale(1);
+        /* Back to original size */
+    }
+}
+
+/* Feature Section */
+.feature i {
+    background: -webkit-linear-gradient(#00e0fe, #1107fe);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -ms-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 36px;
+    /* Decreased icon size */
+    transition: all 0.3s ease;
+    /* Smooth transition for all effects */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    /* Reduced shadow for smaller size */
+}
+
+.feature i:hover {
+    transform: rotate(-10deg);
+    /* Decreased rotation angle */
+    filter: brightness(5.1);
+    /* Adjusted brightness */
+}
+
+
+
+
+/* Style for h5 element */
+h5 {
+    color: #333;
+    /* Default text color */
+    font-size: 20px;
+    /* Adjust font size as needed */
+    margin-top: 1rem;
+    /* Space above the heading */
+    margin-bottom: 1rem;
+    /* Space below the heading */
+    transition: color 0.3s ease, transform 0.3s ease;
+    /* Smooth transition for color and transform */
+}
+
+/* Hover effect for h5 element */
+h5:hover {
+    color: #0059fe;
+    /* Change text color on hover */
+    transform: scale(1.1);
+    /* Slightly enlarge the text on hover */
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+    /* Add shadow for more emphasis */
+}
+
+/* Optional: Add a focus effect if the h5 is focusable (e.g., with tabindex) */
+h5:focus {
+    outline: none;
+    /* Remove default focus outline */
+    color: #0066fe;
+    /* Change text color on focus */
+    transform: scale(1.1);
+    /* Slightly enlarge the text on focus */
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+    /* Add shadow for emphasis */
+}
+
+/* review Section */
+/* Define the animation for the person image hover effect */
+@keyframes hoverEffect {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    100% {
+        transform: scale(1.1);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+}
+
+/* Define the animation for the fade-in effect */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.review .person {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+    padding-bottom: 18px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.review .person img {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.review .person img:hover {
+    animation: hoverEffect 0.3s forwards;
+}
+
+.review .text {
+    margin-left: 1rem;
+    /* Bootstrap class ms-3 translates to margin-left: 1rem */
+}
+
+.review .text h6 {
+    margin-bottom: 0;
+    font-size: 1.25rem;
+    /* Adjust as needed */
+    font-weight: 600;
+    /* Adjust the weight as needed */
+    color: #333;
+    /* Adjust color as needed */
+    animation: fadeIn 1.5s ease-in-out forwards;
+    /* Apply animation */
+}
+
+.review {
+    box-shadow: 0 12px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+    background: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.review:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 16px rgba(0, 0, 0, 0.2);
+}
+
+.review .stars {
+    color: orange;
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 10px;
+}
+
+.review .stars i {
+    transition: transform 0.3s ease;
+}
+
+.review .stars i:hover {
+    transform: scale(1.2);
+}
+
+/* Add hover effect for the review card */
+.review:hover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 165, 0, 0.2);
+    pointer-events: none;
+}
+
+.review p {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.5;
+    animation: fadeIn 1.5s ease-in-out forwards;
+}
+
+
+
+
+/*
+    revuiew
+*/
+
+
+
+/*  */
+/* Form Section */
+/* Floating labels animation */
+form .form-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+form .form-group label {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 16px;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    transform: translateY(-50%);
+}
+
+form .form-control {
+    border-radius: 0;
+    background: transparent;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    transition: all 0.3s ease;
+    /* Smooth transition */
+    box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.2);
+    /* Subtle inner shadow */
+    padding: 15px 15px 15px 15px;
+}
+
+form .form-control::placeholder {
+    color: transparent;
+    /* Hide placeholder text */
+}
+
+form .form-control:focus+label,
+form .form-control:not(:placeholder-shown)+label {
+    top: -10px;
+    left: 10px;
+    font-size: 12px;
+    color: #fff;
+}
+
+/* Glowing border effect */
+form .form-control:focus {
+    color: #fff;
+    background: transparent;
+    border-color: #ff8c00;
+    /* Orange glow color */
+    box-shadow: 0 0 8px rgba(255, 140, 0, 0.6);
+    /* Glowing effect */
+}
+
+/* Floating labels for textarea */
+/* Form group styling */
+form .form-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+/* Label styling */
+form .form-group label {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    color: rgba(255, 255, 255, 0.7);
+    /* Light color for the label */
+    font-size: 16px;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    transform: translateY(-50%);
+    padding-left: 10px;
+    /* Padding for label inside the input */
+}
+
+/* Input styling */
+form .form-control {
+    border-radius: 30px;
+    /* Rounded corners */
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    background: transparent;
+    color: #fff;
+    padding: 12px 20px;
+    width: 100%;
+    transition: all 0.3s ease;
+    box-shadow: none;
+    /* No shadow for a cleaner look */
+    font-size: 16px;
+    position: relative;
+    /* Position relative for placeholder animation */
+}
+
+/* Input focus effect */
+form .form-control:focus {
+    border-color: #ff8c00;
+    /* Border color on focus */
+    outline: none;
+    box-shadow: 0 0 10px rgba(255, 140, 0, 0.4);
+    /* Glowing effect on focus */
+}
+
+/* Placeholder styling */
+form .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+    /* White placeholder text */
+    opacity: 1;
+    transition: all 0.3s ease;
+    /* Smooth transition */
+}
+
+/* Floating label effect */
+form .form-control:focus+label,
+form .form-control:not(:placeholder-shown)+label {
+    top: -12px;
+    left: 10px;
+    font-size: 12px;
+    color: #ff8c00;
+    /* Color of the label when focused */
+}
+
+/* Placeholder animation */
+form .form-control:focus::placeholder,
+form .form-control:not(:placeholder-shown)::placeholder {
+    opacity: 0;
+    /* Hide placeholder text when input is focused or not empty */
+}
+
+/* Hover effect for input fields */
+form .form-control:hover {
+    border-color: #fff;
+    /* Border color on hover */
+}
+
+/* Button styling */
+form .btn-main {
+    background: linear-gradient(90deg, #007bff, #0056b3);
+    /* Gradient background */
+    border: none;
+    color: #fff;
+    border-radius: 30px;
+    /* Rounded corners */
+    padding: 12px 24px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    /* Subtle shadow */
+}
+
+form .btn-main::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transition: all 0.6s ease;
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+}
+
+form .btn-main:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+form .btn-main:hover {
+    background: linear-gradient(90deg, #0056b3, #007bff);
+    /* Gradient background on hover */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+    /* Enhanced shadow on hover */
+    transform: translateY(-2px);
+    /* Slight lift effect on hover */
+}
+
+
+
+
+
+/* Footer */
+
+/* footer {
+    background: linear-gradient(to right, #00e0fe, #1107fe);
+    color: #fff;
+}
+
+footer a {
+    color: #fff;
+} */
+
+
+/* header */
+/* header */
+/* Header */
+.header {
+    font-size: 5.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 2rem;
+    scroll-behavior: smooth;
+}
+
+/* Main Header Styling */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    background: #fff;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    padding: 0.8rem 7%;
+    transition: background 0.3s, padding 0.3s, box-shadow 0.5s, transform 0.3s;
+    /* Add transition for smooth changes */
+}
+
+.header:hover {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 0.8rem 9%;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+    /* Add a subtle lift effect on hover */
+}
+
+.header .logo {
+
+    color: var(--main-color);
+    font-size: 1.5rem;
+    transition: transform 0.3s, color 0.3s, text-shadow 0.3s;
+    /* Add transition for hover effect */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Add text shadow */
+}
+
+
+.header .logo img {
+    height: 50px;
+    width: 50px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.header .logo:hover {
+    transform: scale(1.1);
+    color: var(--secondary-color);
+    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    /* Increase shadow on hover */
+}
+
+.header .logo i {
+    padding-left: 0.5rem;
+}
+
+.header .navbar a {
+    margin: 0 1rem;
+    font-size: 1rem;
+    color: var(--main-color);
+    position: relative;
+    overflow: hidden;
+    transition: color 0.3s, transform 0.3s, text-shadow 0.3s;
+    padding: 0.5rem 0;
+    /* Add padding to enhance the hover effect */
+}
+
+.header .navbar a::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: -100%;
+    background-color: var(--main-color);
+    transition: left 0.3s, transform 0.3s;
+    /* Add transition for slide-in and underline effect */
+}
+
+.header .navbar a:hover::before {
+    left: 0;
+    transform: scaleX(1);
+    /* Add scaling effect for the underline */
+}
+
+.header .navbar a:hover {
+    color: var(--secondary-color);
+    transform: translateY(-5px);
+    /* Slightly move up on hover */
+    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    /* Increase text shadow on hover */
+}
+
+/* Button Styling */
+.header .btn {
+    margin-top: 0;
+    font-size: 1rem;
+    transition: background 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s;
+    /* Add transition for hover effect */
+    padding: 0.5rem 1rem;
+    /* Add padding for better button appearance */
+    border-radius: 5px;
+    /* Add border radius for rounded corners */
+}
+
+.header .btn:hover {
+    background: var(--main-color);
+    color: #cb07f7;
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(179, 86, 191, 0.728);
+    /* Add shadow on hover */
+}
+
+/* Menu Button Styling */
+#menu-btn {
+    font-size: 1rem;
+    color: var(--main-color);
+    cursor: pointer;
+    display: none;
+    transition: transform 0.3s, color 0.3s, box-shadow 0.3s;
+    /* Add transition for hover effect */
+}
+
+#menu-btn:hover {
+    transform: rotate(90deg);
+    color: var(--secondary-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Add shadow on hover */
+}
+
+/* Navbar List Items Styling */
+.header .navbar {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    /* Align items center for consistent spacing */
+}
+
+.header .navbar li {
+    margin: 0 1rem;
+    font-size: 1rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s, opacity 0.3s;
+    opacity: 0;
+    animation: slideIn 0.5s forwards, fadeIn 0.5s ease-in;
+    /* Animate in */
+}
+
+.header .navbar li:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.header .navbar li:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.header .navbar li:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.header .navbar li:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+/* Keyframes for Slide In Animation */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Keyframes for Fade In Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+
+:root {
+    --main-color: #333;
+    --border-hover: 2px solid #333;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.footer {
+    background: #f1f1f1;
+    padding: 0.5rem 0.5rem;
+}
+
+.footer .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(5rem, 0.5fr));
+    gap: 0.5rem;
+}
+
+.footer .box-container .box h3 {
+    font-size: 1rem;
+    padding: 0.5rem 0;
+    color: var(--main-color);
+}
+
+.footer .box-container .box a {
+    display: block;
+    font-size: 0.875rem;
+    /* Reduced font size */
+    padding: 0.5rem 0;
+    /* Reduced padding */
+    color: var(--main-color);
+    text-decoration: none;
+}
+
+.footer .box-container .box a i {
+    padding-right: 0.3rem;
+    /* Reduced padding */
+    transition: padding-right 0.3s;
+}
+
+.footer .box-container .box a:hover i {
+    padding-right: 1rem;
+    /* Adjusted padding on hover */
+}
+
+.footer .credit {
+    text-align: center;
+    font-size: 0.875rem;
+    /* Reduced font size */
+    padding: 0.5rem 0.5rem;
+    /* Reduced padding */
+    margin-top: 0.5rem;
+    /* Reduced margin */
+    color: var(--main-color);
+}
+
+.footer .credit span {
+    border-bottom: var(--border-hover);
+}
+
+
+/* counter */
+/* Section Styling */
+
+
+
+/* Container Styling */
+.container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Icon Styling */
+i {
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Grid Styling */
+.row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.col-md-3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Hover Effects */
+.col-md-3:hover {
+    transform: translateY(-10px);
+    /* Lift effect */
+
+}
+
+.col-md-3:hover i {
+    color: #fff;
+    /* Change icon color on hover */
+    transform: scale(1.1);
+    /* Slightly enlarge icon */
+}
+
+.col-md-3:hover h1 {
+    color: #ff8c00;
+    /* Change heading color on hover */
+}
+
+.col-md-3:hover p {
+    color: #fff;
+    /* Change paragraph color on hover */
+}
+
+/* Animation Effects */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+[data-aos="fade-up"] {
+    animation: fadeInUp 1s ease-out;
+}

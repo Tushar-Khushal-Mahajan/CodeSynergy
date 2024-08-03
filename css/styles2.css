@@ -1,0 +1,101 @@
+/* Center the loader */
+#textareacontainer {
+    position: relative;
+    width: 100%;
+}
+
+#iframecontainer {
+    margin-top: 90px;
+    position: relative; /* Ensure the container is positioned relatively */
+    background-color: #fdfafa;
+    font-size: larger;
+    border: 2px solid #aqua; /* Thicker border */
+    border-radius: 8px; /* Rounded corners */
+    padding: 10px; /* Padding inside the border */
+}
+
+#iframewrapper {
+    position: relative;
+    width: 100%;
+    height: 550px; /* Same as the CodeMirror editor */
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 5px; /* Rounded corners */
+}
+.loader {
+    border: 10px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 10px solid #3498db;
+    width: 50px;
+    height: 50px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+    margin: 0 auto;
+    display: none; /* Hide loader by default */
+}
+
+/* Loader animation */
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Updated file section */
+#fileSection {
+    background-color: #343a40; /* Dark background */
+    padding: 15px;
+    border-radius: 5px;
+}
+
+/* File list styling */
+#fileList .list-group-item {
+    background-color: #495057;
+    color: white;
+    cursor: pointer;
+}
+
+/* File list item hover effect */
+#fileList .list-group-item:hover {
+    background-color: #adb5bd;
+    color: black;
+}
+
+/* File name styling */
+.file-name {
+    max-width: 80%; /* Adjust based on your layout */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Adjust button sizes */
+.btn-group .btn {
+    font-size: 14px;
+    padding: 5px 10px;
+}
+
+/* Loader container styling */
+#runloadercontainer {
+    text-align: center; /* Center the loader */
+    padding: 20px;
+}
+
+/* Iframe container */
+#iframecontainer {
+    height: calc(100vh - 120px); /* Adjust based on your layout */
+    overflow: auto;
+}
+
+/* Iframe wrapper */
+#iframewrapper {
+    height: 100%;
+}

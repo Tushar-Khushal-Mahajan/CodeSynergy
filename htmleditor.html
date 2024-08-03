@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Real-time HTML, CSS, JavaScript Compiler</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/dracula.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container-fluid mt-4">
+    <div class="row">
+      <div class="col-md-2">
+        <div class="file-section">
+          <div class="d-flex align-items-center mb-2">
+            <h2 class="mb-0">Files</h2>
+            <button class="btn btn-success ml-2 animated-btn" onclick="runCode()">Run</button>
+            <button class="btn btn-primary ml-2 animated-btn" onclick="saveFile()">Save</button>
+          </div>
+          <div class="input-group mb-2">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="bi bi-search"></i></span>
+            </div>
+            <input type="text" class="form-control search-input" placeholder="Search files" id="searchFiles" oninput="searchFiles()">
+          </div>
+          <div id="fileList" class="list-group"></div>
+        </div>
+      </div>
+      <div class="col-md-10">
+        <div class="row">
+          <div class="col-md-4">
+            <h2>HTML</h2>
+            <textarea id="htmlCode" class="form-control code-area mb-2" placeholder="HTML" style="height: 670px;"></textarea>
+          </div>
+          <div class="col-md-4">
+            <h2>CSS</h2>
+            <textarea id="cssCode" class="form-control code-area mb-2" placeholder="CSS" style="height: 670px;"></textarea>
+          </div>
+          <div class="col-md-4">
+            <h2>JavaScript</h2>
+            <textarea id="jsCode" class="form-control code-area mb-2" placeholder="JavaScript" style="height: 670px;"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="outputModal" tabindex="-1" aria-labelledby="outputModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="outputModalLabel">Output</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <iframe id="outputFrame" width="100%" height="400px" style="border:0;"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="loader" id="loader">Loading...</div>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+  <script src="js/scriptHTML.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>
