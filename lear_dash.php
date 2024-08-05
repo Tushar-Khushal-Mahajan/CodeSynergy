@@ -25,6 +25,8 @@
       background-position: center;
       background-size: cover;
 
+      overflow: hidden;
+
 
     }
 
@@ -154,6 +156,26 @@
       background: #03a9f4;
       color: #fff;
     }
+
+    @media (max-width:800px) {
+      .container {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+
+        overflow: scroll;
+      }
+
+      .card {
+        width: 50%;
+      }
+    }
+
+    @media (max-width:550px) {
+      .card {
+        width: 90%;
+      }
+    }
   </style>
 </head>
 
@@ -221,13 +243,13 @@
 
   <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
   <script>
-    console.log("Hello");
+    
     $.ajax({
       url: "./services/test-service.php",
       method: "GET",
       data: {},
       success: function(data) {
-        console.log("success");
+        
         let languages = (JSON.parse(data).languages);
 
         let i = 0;
