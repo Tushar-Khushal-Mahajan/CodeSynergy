@@ -242,6 +242,9 @@ body {
     left: 0;
     top: 0;
 
+    width: calc(100% - 300px);
+    overflow-x: hidden;
+
 
     text-align: justify;
     line-height: 1.5;
@@ -273,6 +276,8 @@ body {
 
     color: rgb(13, 12, 12);
     font-weight: bold;
+
+    text-align: start;
     /* background-color: rgba(135, 221, 77, 0.841);; */
 }
 
@@ -285,10 +290,12 @@ body {
     content: "";
     margin-right: 15px;
 }
-.main .content h1::before{
+
+.main .content h1::before {
     content: "➢";
     margin-right: 15px;
 }
+
 .main .content p,
 ul,
 li,
@@ -605,6 +612,10 @@ a {
 
     .main .content {
         padding: 5px;
+
+
+        width: 100%;
+        overflow-x: hidden;
     }
 
 

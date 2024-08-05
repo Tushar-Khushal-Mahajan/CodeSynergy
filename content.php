@@ -7,7 +7,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"> -->
 
 
     <link rel="stylesheet" href="./styles/content.css">
@@ -16,7 +16,7 @@
 </head>
 
 <body>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script> -->
 
     <?php
 
@@ -25,7 +25,7 @@
     if (isset($_GET["id"])) {
     ?>
         <!-- header section starts -->
-        <header class="header" data-aos="fade-up">
+        <header class="header">
             <section class="toggleBtn">
                 <input type="checkbox" id="sidebarCheckBox">
                 <label for="sidebarCheckBox" class="toggleCheckBox">
@@ -34,9 +34,9 @@
             </section>
 
 
-            <section class="heading" data-aos="fade-up">
-                <h2 class="content-heading" data-aos="fade-up"></h2>
-                <h4 class="content-sub-heading" data-aos="fade-up"></h4>
+            <section class="heading">
+                <h2 class="content-heading"></h2>
+                <h4 class="content-sub-heading"></h4>
             </section>
         </header>
         <!-- header section END -->
@@ -61,7 +61,7 @@
 
                     <section class="sidebar-footer pb-5">
 
-                        <section class="footer-top" data-aos="fade-up">
+                        <section class="footer-top">
                             <h3>
                                 <button class="btn" onclick="resourceBtnClick()">
                                     RESOURCES
@@ -75,7 +75,7 @@
                         </section>
                         <section class="footer-bottom">
                             <h3>
-                                <button class="btn" onclick="openComp(<?php echo $_GET['id'];?>)">
+                                <button class="btn" onclick="openComp(<?php echo $_GET['id']; ?>)">
                                     PRACTICE
                                 </button>
                             </h3>
@@ -90,9 +90,9 @@
 
                 <!-- autofill data by ajax -->
 
-                <footer class="footer">
+              <!--  <footer class="footer">
                     This is footer
-                </footer>
+                </footer>  -->
             </div>
         </main>
         <!-- Main section END -->
@@ -167,13 +167,13 @@
 
 
         <script>
-            AOS.init({
-                duration: 800,
-                easing: 'ease-in-out',
-                once: true,
-                mirror: false
-            });
-            
+            // AOS.init({
+            //     duration: 800,
+            //     easing: 'ease-in-out',
+            //     once: true,
+            //     mirror: false
+            // });
+
 
             /** 
              * FOR TOGGLING THE SIDEBAR
@@ -189,6 +189,12 @@
 
                 document.querySelector(".sidebar").classList.toggle("toggle-in-out");
                 document.querySelector(".content").classList.toggle("space-for-sidebar");
+
+
+                // increse content width in desktop mode when sidebar is closed
+                if (document.querySelector(".sidebar").classList.contains("toggle-in-out")) {
+                    document.querySelector(".content").style.width = "100%";
+                }
             }
             // end sidebar Toggle
 
@@ -231,6 +237,7 @@
                     success: function(data) {
 
                         try {
+            
                             data = JSON.parse(data);
 
                             $(".content").html(data.content);
@@ -240,6 +247,7 @@
                             p_id = data.sub_topic_id;
 
                         } catch (error) {
+                            console.error("erorr = ",error)
                             document.body.innerHTML = `<?php echo showAlert("Not Found", "404 Page Not Found", "bg-warning", "./"); ?>`;
                         }
                     },
@@ -251,16 +259,15 @@
 
             subHeading();
 
-            function openComp(id){
-            if(id==1){
-                window.location.href="editor.php";
+            function openComp(id) {
+                if (id == 1) {
+                    window.location.href = "editor.php";
 
-            }
-            else{
-                window.location.href="htmleditor.html";
+                } else {
+                    window.location.href = "htmleditor.html";
 
 
-            }
+                }
             }
 
             //=======================================
