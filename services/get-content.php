@@ -1,6 +1,7 @@
 <?php
 
 include("../config/config.php");
+
 /**
  * RETURN THE CONTENT ON THE CONTENT PAGE IT MEANS
  * RETURN HEADING, SUBHEADINGS, AND DESCRIPTION OF SUBHEADING 
@@ -11,12 +12,19 @@ if (isset($_GET['id'])) {
 
     $subTopicId =  $_GET['id'];
 
+    // Set the character set to UTF-8
+    mysqli_query($con, "SET NAMES 'utf8mb4'");
+    mysqli_query($con, "SET CHARACTER SET 'utf8mb4'");
+    mysqli_query($con, "SET COLLATION_CONNECTION = 'utf8mb4_unicode_ci'");
+    //----END--
+
     $result = mysqli_query($con, "SELECT *FROM descr_tbl WHERE s_id = " . $subTopicId);
 
-
+    // fetch topic name
     $topic_name = mysqli_query($con, "SELECT *FROM topics WHERE t_id = (SELECT t_id FROM sub_topics WHERE id = " . $subTopicId . ") ");
     $topic_name = mysqli_fetch_assoc($topic_name)["t_name"];
 
+    // fetch sub-topic name
     $subTopic =  mysqli_query($con, "SELECT hed_name FROM sub_topics WHERE id = " . $subTopicId);
     $subTopicName = mysqli_fetch_assoc($subTopic)["hed_name"];
 
@@ -29,7 +37,11 @@ if (isset($_GET['id'])) {
         "content" =>  $row
     ];
 
-    echo json_encode($data);
+    $json_data = json_encode($data);
+
+    if(json_last_error() == JSON_ERROR_NONE){
+        echo $json_data;
+    }
 }
 // get first sub heading content based on language id 
 else {
